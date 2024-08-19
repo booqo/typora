@@ -214,7 +214,7 @@ CUDA 代码库的新 GPG 公钥是 [3bf863cc](https://developer.download.nvidia.
 
 这里我们应该先去[官网](https://developer.nvidia.com/cuda-toolkit-archive)上下载好cuda11.8的安装包，选好版本按照指示就可以下载：
 
-![1724031064366](/media/asus/Samsung USB/ubuntu/桌面/photoSlam配置全流程.assets/1724031064366.jpg)
+![1724031064366](/photoSlam配置全流程.assets/1724031064366.jpg)
 
 下面是给出的本地安装步骤，已经注释了每步干啥，比较耗时的部分是wget的安装包，建议提前下载好。
 
@@ -244,7 +244,7 @@ sudo apt-get -y install cuda
 
 同样去[官网](https://developer.nvidia.com/cuda-toolkit-archive)上下载好cuda11.8的安装包，选好版本按照指示，选择network就行。
 
-![1724031502118](/media/asus/Samsung USB/ubuntu/桌面/photoSlam配置全流程.assets/1724031502118.jpg)
+![1724031502118](/photoSlam配置全流程.assets/1724031502118.jpg)
 
 ```bash
 # 下载并安装 CUDA keyring 包，用于验证来自 NVIDIA 的软件包
@@ -337,7 +337,7 @@ echo $LD_LIBRARY_PATH | grep /usr/local/cuda-11.8/lib64
 nvidia-smi
 ```
 
-![2024-08-19 10-01-31 的屏幕截图](/media/asus/Samsung USB/ubuntu/桌面/photoSlam配置全流程.assets/2024-08-19 10-01-31 的屏幕截图.png)
+![2024-08-19 10-01-31 的屏幕截图](/photoSlam配置全流程.assets/2024-08-19 10-01-31 的屏幕截图.png)
 
 上面显示我的驱动版本是560.28.03 ，最高支持CUDA版本是  12.6。如果返回 NVIDIA 驱动的详细信息，说明系统已安装 NVIDIA 驱动程序。如果返回错误或显示 command not found，说明未安装或安装不正确。
 
@@ -394,7 +394,7 @@ cudnn-local-repo-ubuntu2004-8.9.3.82_1.0-1_amd64.deb
 
 在下载页面选择适合您系统的 cuDNN 版本和目标 CUDA 版本，我选择8.9.3的版本。
 
-![1724034114332](/media/asus/Samsung USB/ubuntu/桌面/photoSlam配置全流程.assets/1724034114332.jpg)
+![1724034114332](/photoSlam配置全流程.assets/1724034114332.jpg)
 
 或者使用下面命令下载：
 
@@ -626,7 +626,7 @@ set(CUDA_ARCHITECTURES 70)
 
 这里的701表示支持Compute Capability7.0的架构。你需要根据你的GPU架构调整这个值。如果你不确定自己的GPU架构，可以参考[NVIDIA官方文档](https://developer.nvidia.com/cuda-gpus)获取计算能力（Compute Capability）信息。根据文档，NVIDIA GeForce RTX 4070 Ti 的计算能力是 8.9，理论上`set(CUDA_ARCHITECTURES "89")`就可以了，但是 现在nvcc 编译器版本不支持 compute_89 的架构。
 
-![1724045775311](/media/asus/Samsung USB/ubuntu/桌面/photoSlam配置全流程.assets/1724045775311.jpg)
+![1724045775311](/photoSlam配置全流程.assets/1724045775311.jpg)
 
 或者在编译时手动设置通用架构：
 
@@ -655,7 +655,7 @@ endif()
 
 ```
 
-![2024-08-19 13-45-25 的屏幕截图](/media/asus/Samsung USB/ubuntu/桌面/photoSlam配置全流程.assets/2024-08-19 13-45-25 的屏幕截图.png)
+![2024-08-19 13-45-25 的屏幕截图](/photoSlam配置全流程.assets/2024-08-19 13-45-25 的屏幕截图.png)
 
 显示上面内容就证明彻底编译好了，**庆祝一下！！**
 
@@ -742,7 +742,7 @@ unzip V2_01_easy.zip
 
 运行可得到下面效果：
 
-![2024-08-19 14-10-44 的屏幕截图](/media/asus/Samsung USB/ubuntu/桌面/photoSlam配置全流程.assets/2024-08-19 14-10-44 的屏幕截图.png)
+![2024-08-19 14-10-44 的屏幕截图](/photoSlam配置全流程.assets/2024-08-19 14-10-44 的屏幕截图.png)
 
 对于其他数据集，可以参考脚本在Photo-SLAM/scripts文件夹下的.sh文件。比如euro数据集：
 
@@ -768,7 +768,7 @@ unzip V2_01_easy.zip
     #no_viewer
 ```
 
-![2024-08-19 14-20-01 的屏幕截图](/media/asus/Samsung USB/ubuntu/桌面/photoSlam配置全流程.assets/2024-08-19 14-20-01 的屏幕截图.png)
+![2024-08-19 14-20-01 的屏幕截图](/photoSlam配置全流程.assets/2024-08-19 14-20-01 的屏幕截图.png)
 
 说实话，个人感觉跑euro数据集效果不是很好。
 
